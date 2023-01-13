@@ -48,7 +48,9 @@ jobs:
         with:
           target: x86_64-unknown-linux-musl
       - name: Build
-        run: cargo build --release --target x86_64-unknown-linux-musl
+        run: |
+          sudo apt update && sudo apt install musl-tools
+          cargo build --release --target x86_64-unknown-linux-musl
       - name: Pack
         run: |
           cp target/x86_64-unknown-linux-musl/release/colink-server ./
