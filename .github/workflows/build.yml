@@ -45,6 +45,8 @@ jobs:
           submodules: recursive
       - name: Install Rust
         uses: actions-rs/toolchain@v1
+        with:
+          target: x86_64-unknown-linux-musl
       - name: Build
         run: cargo build --release --target x86_64-unknown-linux-musl
       - name: Pack
